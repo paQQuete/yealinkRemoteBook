@@ -6,7 +6,7 @@ import pysftp
 class Extractor:
     '''
     Класс для чтения и парсинга файла sip.conf
-    :param sftp: класса объект pystfp.Connection с готовым соединением
+    :param sftp: объект класса pystfp.Connection с готовым соединением
     '''
 
     def __init__(self, sftp: pysftp.Connection):
@@ -25,10 +25,6 @@ class Extractor:
         with open('sip.conf', mode='r') as conffile:
             return conffile.read()
 
-    @property
-    def subs(self):
-        return self.__subs
-
     def _take_callers(self) -> dict:
         ''' Функция формирует словарь вида
         {номер телефона (строка): имя (строка, из параметра sip конфига callerid} '''
@@ -40,3 +36,7 @@ class Extractor:
             caller_number = re.search(r'\d{3}', each[2]).group()
             output.update({caller_number: name})
         return output
+
+    @property
+    def subs(self):
+        return self.__subs
