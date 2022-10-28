@@ -3,7 +3,7 @@ from typing import Tuple
 import xml.etree.ElementTree as ET
 
 
-class TransformDictToXML():
+class TransformDictToXML:
     def __init__(self, data: dict):
         self.__rawdata = data
         self.__rootel, self.__titleel, self.__menuel = self._structure_init()
