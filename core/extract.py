@@ -3,7 +3,7 @@ import re
 import pysftp
 
 
-class Extractor:
+class ExtractorSFTP:
     '''
     Класс для чтения и парсинга файла sip.conf
     :param sftp: объект класса pystfp.Connection с готовым соединением
