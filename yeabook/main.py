@@ -1,9 +1,7 @@
 import os
 from pathlib import Path
 import time
-from base64 import decodebytes
 
-import paramiko
 import pysftp
 from dotenv import load_dotenv
 
@@ -23,11 +21,7 @@ ASTERISK_HOST = os.getenv('ASTERISK_HOST')
 ASTERISK_USERNAME = os.getenv('ASTERISK_USERNAME')
 ASTERISK_PASSWORD = os.getenv('ASTERISK_PASSWORD')
 LOOP_TIMEOUT = int(os.environ.get('LOOP_TIMEOUT'))
-# SSHRSA = bytes(os.environ.get('SSH-RSA'), 'utf-8')
 
-# key = paramiko.RSAKey(data=decodebytes(SSHRSA))
-# cnopts = pysftp.CnOpts()
-# cnopts.hostkeys.add('example.com', 'ssh-rsa', key)
 cnopts = pysftp.CnOpts()
 cnopts.hostkeys = None
 
