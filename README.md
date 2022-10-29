@@ -27,9 +27,18 @@ vim .env
 ```shell
 cd ~/yealinkRemoteBook && sudo docker-compose up --build
 ```
+or
+```shell
+cd ~/yealinkRemoteBook && sudo docker-compose up -d --build
+```
+to run in detach mode (to avoid attaching a process to a running terminal)
 
 ## Running
 ```shell
 cd ~/yealinkRemoteBook && sudo docker-compose up
 ```
-
+or
+```shell
+cd ~/yealinkRemoteBook && sudo docker-compose up -d
+```
+to run in detach mode (to avoid attaching a process to a running terminal)
