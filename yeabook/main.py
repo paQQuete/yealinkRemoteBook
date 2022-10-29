@@ -1,7 +1,10 @@
 import os
 from pathlib import Path
 import time
+from base64 import decodebytes
 
+import paramiko
+import pysftp
 from dotenv import load_dotenv
 
 from utils.context_manager import pysftp_conn_context
@@ -20,19 +23,26 @@ ASTERISK_HOST = os.getenv('ASTERISK_HOST')
 ASTERISK_USERNAME = os.getenv('ASTERISK_USERNAME')
 ASTERISK_PASSWORD = os.getenv('ASTERISK_PASSWORD')
 LOOP_TIMEOUT = int(os.environ.get('LOOP_TIMEOUT'))
+# SSHRSA = bytes(os.environ.get('SSH-RSA'), 'utf-8')
+
+# key = paramiko.RSAKey(data=decodebytes(SSHRSA))
+# cnopts = pysftp.CnOpts()
+# cnopts.hostkeys.add('example.com', 'ssh-rsa', key)
+cnopts = pysftp.CnOpts()
+cnopts.hostkeys = None
 
 if __name__ == '__main__':
     while True:
-        with pysftp_conn_context(host=ASTERISK_HOST, username=ASTERISK_USERNAME, password=ASTERISK_PASSWORD) as sftp:
+        with pysftp_conn_context(host=ASTERISK_HOST, username=ASTERISK_USERNAME, password=ASTERISK_PASSWORD,
+                                 cnopts=cnopts) as sftp:
             extractions = ExtractorSFTP(sftp)
             logger.info(f"Extraction from {ASTERISK_HOST} completed")
 
             transform = TransformDictToXML(extractions.subs)
             logger.info(f"Transform data to XML completed")
 
-            Savetofile.write(filename='addressbook.xml', data=transform.xmlout)
-            # TODO: logger 'xml upload to .. here'
+            Savetofile.write(filename='book.xml', data=transform.xmlout)
 
             logger.info(
-                f"Next sync attempt in {LOOP_TIMEOUT} seconds ({LOOP_TIMEOUT / 60} minutes, {LOOP_TIMEOUT / 3600}).")
+                f"Next sync attempt in {LOOP_TIMEOUT} seconds ({LOOP_TIMEOUT / 60} minutes, {LOOP_TIMEOUT / 3600} hours).")
             time.sleep(LOOP_TIMEOUT)
