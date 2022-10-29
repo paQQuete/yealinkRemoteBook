@@ -1,6 +1,6 @@
 # ETL service for transform asterisk subscribers to xml address book (for Yealink phones)
 
-The service works continuously after launch, the LOOP_TIMEUT parameter is responsible for the update time, the phone
+The service works continuously after launch, the LOOP_TIMEOUT parameter is responsible for the update time, the phone
 book is available at http://host/yeabook/book.xml
 
 ## Before launch:
