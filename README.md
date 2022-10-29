@@ -8,6 +8,7 @@ book is available at http://host/yeabook/book.xml
 git clone https://github.com/paQQuete/yealinkRemoteBook.git
 ``` 
  - install Docker https://docs.docker.com/engine/install/
+ - install Docker Compose https://docs.docker.com/compose/install/
  - create and fill '.env' file
 ```shell
 cd ~/yealinkRemoteBook/yeabook 
