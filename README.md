@@ -15,11 +15,13 @@ cd ~/yealinkRemoteBook/yeabook
 vim .env
 ```
 ## .env
- - ASTERISK_HOST=asterisk host ip address (for example, ASTERISK_HOST=10.0.0.1)
- - ASTERISK_SSH_PORT=SSH port (default 22)
- - ASTERISK_USERNAME=username to SSH auth
- - ASTERISK_PASSWORD=password
- - LOOP_TIMEOUT=timeout in seconds for restart ETL process
+ ```shell
+ ASTERISK_HOST=asterisk host ip address (for example, ASTERISK_HOST=10.0.0.1)
+ ASTERISK_SSH_PORT=SSH port (default 22)
+ ASTERISK_USERNAME=username to SSH auth
+ ASTERISK_PASSWORD=password
+ LOOP_TIMEOUT=timeout in seconds for restart ETL process
+ ```
 
 ## First run
 ```shell
