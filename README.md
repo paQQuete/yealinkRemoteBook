@@ -31,7 +31,7 @@ or
 ```shell
 cd ~/yealinkRemoteBook && sudo docker-compose up -d --build
 ```
-to run in detach mode (to avoid attaching a process to a running terminal)
+run in detach mode (to avoid attaching a process to a running terminal)
 
 ## Running
 ```shell
@@ -41,4 +41,4 @@ or
 ```shell
 cd ~/yealinkRemoteBook && sudo docker-compose up -d
 ```
-to run in detach mode (to avoid attaching a process to a running terminal)
+run in detach mode (to avoid attaching a process to a running terminal)
