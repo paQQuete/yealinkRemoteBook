@@ -25,11 +25,11 @@ vim .env
 
 ## First run
 ```shell
-sudo docker-compose up --build
+cd ~/yealinkRemoteBook && sudo docker-compose up --build
 ```
 
 ## Running
 ```shell
-sudo docker-compose up
+cd ~/yealinkRemoteBook && sudo docker-compose up
 ```
 
