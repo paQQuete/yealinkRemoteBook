@@ -36,7 +36,7 @@ if __name__ == '__main__':
             logger.info(f"Transform data to XML completed")
 
             Savetofile.write(filename='book.xml', data=transform.xmlout)
-
+            logger.info(f"XML file updated")
             logger.info(
                 f"Next sync attempt in {LOOP_TIMEOUT} seconds ({LOOP_TIMEOUT / 60} minutes, {LOOP_TIMEOUT / 3600} hours).")
         time.sleep(LOOP_TIMEOUT)
