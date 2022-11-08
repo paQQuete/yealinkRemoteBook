@@ -29,9 +29,9 @@ class TransformDictToXML:
             subobjects[caller_number].set('default_photo', 'Resource:')
         return subobjects
 
-    def _cooking_root(self):
-        return ET.tostring(self.__rootel, 'utf-8')
+    def _cooking_root(self) -> str:
+        return ET.tostring(self.__rootel, 'utf-8').decode()
 
     @property
-    def xmlout(self):
-        return self.__rootel
+    def xmlout(self) -> bytes:
+        return bytes(f'''<?xml version="1.0" encoding="UTF-8"?>\n {self.__rootel}''', 'utf-8')
